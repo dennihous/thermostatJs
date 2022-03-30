@@ -3,37 +3,40 @@ class Thermostat{
     this.minTemp = 10
     this.maxTemp = 25
     this.temperature = 20
-    var powerSavingMode = true
+    this.powerSavingMode = true
   }
   tempDown(){
-    this.powerSaving()
-    if (this.temperature >= minTemp){
-      this.temperature ++
+    if (this.temperature > this.minTemp){
+      this.temperature --
     }
   }
     
   tempUp(){
-    this.powerSaving()
-    if (this.temperature >= minTemp){
+    if (this.temperature < this.maxTemp){
       this.temperature ++
     }
   }
   getTemperature(){
     return this.temperature
   }
-  powerSaving(){
-    if(powerSavingMode){
+  setPowerSavingMode(boolean){
+    this.powerSavingMode = boolean
+    if (this.powerSavingMode) {
       this.maxTemp = 25
     } else {
       this.maxTemp = 32
     }
   }
+  reset(){
+    this.temperature = 20
+  }
 }
-
-
 
 module.exports = Thermostat
 
-const thermo = new Thermostat
-thermo.tempDown()
-console.log(thermo.getTemperature())
+// const thermo = new Thermostat
+// thermo.tempUp()
+// thermo.tempUp()
+// thermo.setPowerSavingMode(false)
+// thermo.tempUp().getTemperature()
+// console.log(thermo.getTemperature())
