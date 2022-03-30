@@ -14,13 +14,19 @@ describe('Thermostat', () => {
   })
   it('should be able to have a limit of 25 degrees when powersavingmode is on', () => {
     const thermo = new Thermostat();
-    thermo.tempUp()
-    thermo.tempUp()
-    thermo.tempUp()
-    thermo.tempUp()
-    thermo.tempUp()
+    for(let i = 0; i < 5; i++){
+      thermo.tempUp()
+    }
     const peakTemp = thermo.getTemperature()
     thermo.tempUp()
     expect(thermo.getTemperature()).toBe(peakTemp)
+  })
+  it('should be able to go above 25 when the powersavingmode is turned off', () => {
+    const thermo = new Thermostat();
+    thermo.setPowerSavingMode(false)
+    for(let i = 0; i < 10; i++){
+      thermo.tempUp()
+    }
+    expect(thermo.getTemperature()).toBe(30)
   })
 })

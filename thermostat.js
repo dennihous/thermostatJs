@@ -33,10 +33,3 @@ class Thermostat{
 }
 
 module.exports = Thermostat
-
-// const thermo = new Thermostat
-// thermo.tempUp()
-// thermo.tempUp()
-// thermo.setPowerSavingMode(false)
-// thermo.tempUp().getTemperature()
-// console.log(thermo.getTemperature())
