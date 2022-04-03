@@ -24,9 +24,9 @@ describe('Thermostat', () => {
   it('should be able to go above 25 when the powersavingmode is turned off', () => {
     const thermo = new Thermostat();
     thermo.setPowerSavingMode(false)
-    for(let i = 0; i < 10; i++){
+    for(let i = 0; i < 100; i++){
       thermo.tempUp()
     }
-    expect(thermo.getTemperature()).toBe(30)
+    expect(thermo.getTemperature()).toBe(32)
   })
 })

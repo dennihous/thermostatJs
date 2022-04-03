@@ -32,4 +32,6 @@ class Thermostat{
   }
 }
 
+// setInterval()
+
 module.exports = Thermostat
